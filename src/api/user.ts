@@ -9,6 +9,8 @@ interface LoginParams {
   username: string
   password: string
 }
+
+
 //封装User类型的接口方法
 export class UserService {
   /**
@@ -35,4 +37,14 @@ export class UserService {
       },
     })
   }
+
+  static async getCurrentUser(): Promise<any> {
+    return Axios('/api/user/getcuruser', {
+      method: 'get',
+      responseType: 'json',
+    })
+  }
+
+  
+
 }

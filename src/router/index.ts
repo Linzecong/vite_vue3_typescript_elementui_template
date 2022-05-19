@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HelloWorld from '../components/HelloWorld.vue'
+import page1 from '@/views/page1/main.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
@@ -8,23 +8,23 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: '/home',
-    name: 'HelloWorld',
-    component: HelloWorld,
+    path: '/page1',
+    name: 'page1',
+    component: page1,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/page2',
+    name: 'page2',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "About" */ '../components/About.vue'),
+      import(/* webpackChunkName: "page2" */ '@/views/page2/main.vue'),
   },
   {
     path: '/:currentPath(.*)*', // 路由未匹配到，进入这个
     redirect: (_) => {
-      return { path: '/404' }
+      return { path: '/page1' }
     },
   },
 ]
